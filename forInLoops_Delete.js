@@ -33,6 +33,11 @@
 
 function showValues( obj ) {
   // CODE HERE
+  var concat = "";
+  for(var key in obj) {
+    concat += obj[key]
+  }
+  return concat
 }
 
 
@@ -43,7 +48,14 @@ function showValues( obj ) {
 
 // CODE HERE
 
-
+let greaterThan10 = (obj) => {
+  for(let key in obj) {
+    if(obj[key] > 10) {
+      obj[key] = 0;
+    }
+  }
+  return obj
+}
 
 // ========================
 
@@ -52,7 +64,12 @@ function showValues( obj ) {
 
 // CODE HERE
 
-
+function double(obj){
+  for(var i in obj) {
+    obj[i] *= 2
+  }
+  return obj
+}
 
 // ========================
 
@@ -61,6 +78,15 @@ function showValues( obj ) {
 
 // CODE HERE
 
+var secrets = (obj) => {
+  var empty = ""
+  for(var prop in obj) {
+    if(prop[0] === "s" && prop[1] === "h") {
+      empty += obj[prop]
+    }
+  }
+  return empty
+}
 
 // ========================
 
@@ -86,12 +112,25 @@ function showValues( obj ) {
 
 // CODE HERE
 
+var removePassword = (obj) => {
+  for(var key in obj) {
+    if(key === "password") {
+      delete obj[key]
+    }
+
+  }
+  return obj
+}
 
 
 // ========================
 
 
 // Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
+
+
+
+// CODE HERE
 
 var deleteTheBigNumbers = {
   first: 10,
@@ -100,7 +139,12 @@ var deleteTheBigNumbers = {
   fourth: 200
 }
 
-// CODE HERE
+  for(var key in deleteTheBigNumbers) {
+    if(deleteTheBigNumbers[key] > 100) {
+      delete deleteTheBigNumbers[key];
+    }
+  }
+  
 
 
 // ========================
@@ -110,7 +154,13 @@ var deleteTheBigNumbers = {
 
 // CODE HERE
 
-
+let startsWithK = (obj) => {
+  for(let key in obj) {
+    if(key[0] === "k")
+    delete obj[key];
+  }
+  return obj
+}
 
 // ========================
 
@@ -119,3 +169,12 @@ var deleteTheBigNumbers = {
 // (hint: the method includes() may be of use...)
 
 // CODE HERE
+
+function hiddenTreasure(obj){
+  for(var i in obj) {
+    if(!obj[i].includes("treasure")){
+      delete obj[i]
+    }
+  }
+  return obj
+}
