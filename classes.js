@@ -21,7 +21,17 @@ Each employee can:
 
 call your class Employee and receive all the data in the constructor in the order listed
 */
-
+class Employee {
+    constructor(first_name, last_name, email, age) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.age = age
+    }
+    makeWidget() {
+        return `${this.first_name} ${this.last_name} Widget`
+    }
+}
 
 
 /*
@@ -41,7 +51,21 @@ call your class Manager
 
 */
 
-
+class Manager {
+    constructor(first_name, last_name, email, age) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.age = age;
+        this.reports = [];
+    }
+    hire(employee) {
+        this.reports.push(employee)
+    }
+    fire(index) {
+        this.reports.splice(index,1)
+    }
+}
 
 
 
@@ -65,7 +89,42 @@ Everytime they fire an employee they get a bonus of $100 add to their .
 call you class ProgressiveManager
 */
 
+class ProgressiveManager {
+    constructor(first_name, last_name, email, age) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.age = age;
+        this.reports = [];
+        this.title = "Not a manager";
+        this.bonus = 0;
+    }
+    hire(employee) {
+        this.reports.push(employee)
+        this.changeTitle()
+    }
+    fire(index) {
+        this.reports.splice(index,1)
+        this.bonus += 100;
+    }
 
+    changeTitle() {
+        var numOfEmployees = this.reports.length + 1
+        if (numOfEmployees > 101) {
+            this.title = "Bestest Manager";
+        } else if (numOfEmployees > 50) {
+            this.title = "Manager Plus";
+        } else if (numOfEmployees > 10) {
+            this.title = "Manager";
+        } else if (numOfEmployees > 3) {
+            this.title = "Mostly Manager";
+        } else if (numOfEmployees > 1) {
+            this.title = "Barely Manager"
+        } else {
+            this.title = "Not a manager"
+        }
+    }
+}
 
 
 /*
@@ -90,3 +149,27 @@ It can :
       It should set decrease wear_and_tear_count by 10, and set needs_reboot to false
 
 */
+
+class Machine {
+    constructor() {
+        this.widgets_made_count = 0;
+        this.wear_and_tear_count = 0;
+        this.needs_reboot = false;
+    }
+    makeWidgets(num) {
+        this.widgets_made_count += num;
+        var diff = this.widgets_made_count - (this.wear_and_tear_count * 50);
+        while (diff >= 50) {
+            this.wear_and_tear_count++;
+            diff -= 50;
+        }
+    }
+
+    fixMachine() {
+        this.needs_reboot = true;
+    }
+
+    reboot() {
+        
+    }
+}
