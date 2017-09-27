@@ -13,6 +13,8 @@ var carDetails = {
 
 // CODE HERE
 
+let {color, make, model, year} = carDetails
+
 
 // ========================
 
@@ -21,6 +23,8 @@ var carDetails = {
 
 function greeting( obj ) {
   // CODE HERE
+  
+let {firstName, lastName, title} = obj;
   
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
 }
@@ -32,6 +36,11 @@ function greeting( obj ) {
 // Write a function called totalPopulation that will take in an object. That object will have 4 properties named utah, california, texas and arizona. The property values will be numbers. Use object destructuring to save the property values to new variables. Sum up the values and return the total number.
 
   // CODE HERE
+var totalPopulation = (obj) => {
+  let {utah, california, texas, arizona} = obj;
+
+  return utah + california + texas + arizona;
+}
 
 
 // ========================
@@ -41,6 +50,14 @@ function greeting( obj ) {
 
   // CODE HERE
 
+var ingredients = (obj) => {
+
+  let {carb, fat, protein} = obj
+  let arr = [];
+  arr.push(carb, fat, protein);
+  return arr;
+
+}
 
 // ========================
 
@@ -55,6 +72,18 @@ function greeting( obj ) {
 
   // CODE HERE
 
+let largeNumbers = ({first, second, third}) => {
+  let lowest = first;
+  if(lowest > second) {
+    lowest = second;
+  }
+  if(lowest > third) {
+    lowest = third;
+  }
+ 
+  return lowest;
+
+}
 
 // ========================
 
@@ -62,3 +91,13 @@ function greeting( obj ) {
 // Write a function called numberGroups that will take a destructured object as it's parameter. The object properties will be named a, b, and c and their values will be arrays of numbers. Find the longest array and return that array. 
 
   // CODE HERE
+
+  let numberGroups = ({a, b, c}) => {
+    if(a.length > b.length && a.length > c.length) {
+      return a;
+    } else if(b.length > c.length && b.length > a.length) {
+      return b;
+    } else {
+      return c;
+    }
+  }
